@@ -32,24 +32,25 @@ func (st *State) StateWorker() {
 		case GetAll:
 			log.Debug("получен запрос от сервера на все данные")
 			aw := Answer{
-				data:   st.stateStorage,
-				status: StatusOK,
+				Data:   st.stateStorage,
+				Status: StatusOK,
 			}
+			// time.Sleep(15 * time.Second)
 			mess.ch <- aw
 			log.Debug("данные отправлены")
 		case UpdateData:
 			log.Debug("получен запрос от сервера на изменение данных")
-			st.stateStorage[mess.data.key] = mess.data.value
+			st.stateStorage[mess.data.Key] = mess.data.Value
 			aw := Answer{
-				status: StatusOK,
+				Status: StatusOK,
 			}
 			mess.ch <- aw
 			log.Debug("данные по запросу изменены")
 		case InputData:
 			log.Debug("получен запрос от сервера на добавление данных")
-			st.stateStorage[mess.data.key] = mess.data.value
+			st.stateStorage[mess.data.Key] = mess.data.Value
 			aw := Answer{
-				status: StatusOK,
+				Status: StatusOK,
 			}
 			mess.ch <- aw
 			log.Debug("данные добавлены")

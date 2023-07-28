@@ -16,5 +16,5 @@ func main() {
 	inputStateChan := make(StateInpChan)
 	initServer(inputStateChan)
 	initState(inputStateChan)
-	time.Sleep(250 * time.Second)
+	time.Sleep(500 * time.Second)
 }

@@ -11,13 +11,18 @@ type Mess struct {
 }
 
 type ServerData struct {
-	key   string
-	value interface{}
+	Key   string      `json:"key"`
+	Value interface{} `json:"value"`
 }
 
 type AnswerChan chan Answer
 
 type Answer struct {
-	data   StorageSt
-	status string
+	Data   StorageSt `json:"data"`
+	Status string    `json:"status"`
+}
+
+type ErrorResponse struct {
+	Status bool        `json:"status"`
+	Error  interface{} `json:"error"`
 }
